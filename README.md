@@ -45,11 +45,17 @@ PROJECTS/
 coditect-distributed-architecture/
 ├── README.md                     # This file
 ├── CLAUDE.md                     # Claude Code instructions
+├── scripts/                      # Automation scripts
+│   ├── setup-project.sh          # Setup new project
+│   ├── migrate-project.sh        # Migrate existing project
+│   └── health-check.sh           # Verify architecture health
 ├── docs/
 │   ├── adrs/                     # Architecture Decision Records
 │   │   ├── ADR-001-distributed-brain.md
-│   │   ├── ADR-002-memory-context.md
-│   │   └── ...
+│   │   ├── ADR-002-centralized-memory-context.md
+│   │   ├── ADR-003-project-local-configuration.md
+│   │   ├── ADR-004-export-deduplication-strategy.md
+│   │   └── ADR-TEMPLATE.md
 │   ├── research/                 # Research and analysis
 │   └── design/                   # SDDs, TDDs, specifications
 └── diagrams/                     # Architecture diagrams
@@ -60,8 +66,30 @@ coditect-distributed-architecture/
 | ADR | Title | Status | Date |
 |-----|-------|--------|------|
 | [ADR-001](docs/adrs/ADR-001-distributed-brain.md) | Distributed Brain Architecture | Accepted | 2025-11-18 |
-| ADR-002 | Centralized Memory Context | Proposed | TBD |
-| ADR-003 | Project-Local Configuration | Proposed | TBD |
+| [ADR-002](docs/adrs/ADR-002-centralized-memory-context.md) | Centralized Memory Context | Accepted | 2025-11-18 |
+| [ADR-003](docs/adrs/ADR-003-project-local-configuration.md) | Project-Local Configuration | Accepted | 2025-11-18 |
+| [ADR-004](docs/adrs/ADR-004-export-deduplication-strategy.md) | Export Deduplication Strategy | Accepted | 2025-11-18 |
+
+## Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `setup-project.sh` | Setup new project with CODITECT architecture |
+| `migrate-project.sh` | Migrate existing project from submodule to symlink |
+| `health-check.sh` | Verify project architecture health |
+
+### Usage
+
+```bash
+# Setup new project
+./scripts/setup-project.sh /path/to/PROJECTS/my-new-project
+
+# Migrate existing project
+./scripts/migrate-project.sh /path/to/PROJECTS/existing-project
+
+# Check health
+./scripts/health-check.sh /path/to/PROJECTS/my-project
+```
 
 ## Related Repositories
 
